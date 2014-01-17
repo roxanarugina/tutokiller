@@ -1,6 +1,14 @@
 require 'rubygems'
 require 'sinatra/base'
 require 'haml'
+require 'sinatra'
+require 'sinatra/activerecord'
+require './app/models/user'
+require './app/models/tuto'
+
+
+set :database, 'sqlite://db/development.sqlite'
+set :views, './app/views'
 
 class SinatraBootstrap < Sinatra::Base
   require './helpers/render_partial'
@@ -9,6 +17,17 @@ class SinatraBootstrap < Sinatra::Base
     haml :index
   end
 
-  # start the server if ruby file executed directly
-  run! if app_file == $0
+#   get '/' do
+#     redirect '/users'
+# end
+
 end
+
+#   # start the server if ruby file executed directly
+#   run! if app_file == $0
+# end
+
+
+
+
+
